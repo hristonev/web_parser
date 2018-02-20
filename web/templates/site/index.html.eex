@@ -1,0 +1,29 @@
+<h2>Listing sites</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>Limit</th>
+      <th>Depth</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for site <- @sites do %>
+    <tr class="js-mirror" data-id="<%= site.id %>" data-user="<%= site.user_id %>">
+      <td><%= site.url %></td>
+      <td><%= site.delay %></td>
+      <td><%= site.user_agent %></td>
+      <td class="text-right">
+        <button type="button" class="btn btn-default btn-xs js-start">Start</button>
+        <%= link "Show", to: site_path(@conn, :show, site), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: site_path(@conn, :edit, site), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: site_path(@conn, :delete, site), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New site", to: site_path(@conn, :new) %>

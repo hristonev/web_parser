@@ -1,0 +1,22 @@
+<h2>Site Statistic</h2>
+<nav class="navbar navbar-default">
+<ul class="nav navbar-nav">
+    <li class="nav-item">
+        <%= link "Edit", to: site_path(@conn, :edit, @site) %>
+    </li>
+    <li>
+        <%= link "Back", to: site_path(@conn, :index) %>
+    </li>
+</ul>
+</nav>
+<form>
+    <div class="form-group">
+        <label for="msg-container">Message Container</label>
+        <textarea class="form-control" id="msg-container"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="msg-input">Message Input</label>
+        <input class="form-control" id="msg-input">
+    </div>
+    <button type="submit" class="btn btn-primary" id="msg-submit">Send</button>
+</form>
